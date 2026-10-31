@@ -1,0 +1,71 @@
+/* やわらかい印象の配色（ティール系）。ダークモードでも読みやすいように両方定義する */
+:root {
+  --vp-c-brand-1: #0f766e;
+  --vp-c-brand-2: #0d9488;
+  --vp-c-brand-3: #14b8a6;
+  --vp-c-brand-soft: rgba(20, 184, 166, 0.16);
+  --vp-font-family-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, system-ui, sans-serif;
+  --genbun-bg: #f7f5ef;
+  --genbun-border: #b8a46a;
+}
+.dark {
+  --vp-c-brand-1: #5eead4;
+  --vp-c-brand-2: #2dd4bf;
+  --vp-c-brand-3: #14b8a6;
+  --vp-c-brand-soft: rgba(45, 212, 191, 0.16);
+  --genbun-bg: #24221c;
+  --genbun-border: #8f7d4a;
+}
+
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.9;
+}
+
+/*
+ * コンテナの使い分け（全ページ共通）
+ *   ::: tip ざっくり言うと   … やさしい要約
+ *   ::: info 原文（出典）     … 条文・審査基準の原文。言い換えずにそのまま載せる
+ *   ::: warning 社内判定では … 出願前判定の実務での使いどころ
+ *   ::: danger よくある間違い
+ *   ::: details 答えと解説
+ */
+.vp-doc .custom-block.info {
+  background: var(--genbun-bg);
+  border-left: 4px solid var(--genbun-border);
+  border-radius: 4px 8px 8px 4px;
+  font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+}
+.vp-doc .custom-block.info .custom-block-title {
+  font-family: var(--vp-font-family-base);
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+}
+
+/* 例題カード（審査基準に載っている例を紹介するとき） */
+.vp-doc .example {
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 4px 16px;
+  margin: 16px 0;
+}
+.vp-doc .example > p:first-child {
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+}
+
+.vp-doc .lead {
+  font-size: 17px;
+  color: var(--vp-c-text-2);
+}
+
+/* 列の多い表はスマホで縦長になりすぎるので、セルに最小幅を持たせて横スクロールさせる */
+.vp-doc table:not(.cw-table) th,
+.vp-doc table:not(.cw-table) td {
+  min-width: 7em;
+}
